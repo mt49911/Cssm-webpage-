@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSSM School</title>
+
+<style>
+:root{
+  --primary:#0a3d62;
+  --secondary:#f1f6fb;
+  --accent:#1e90ff;
+  --text:#333;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"Segoe UI", Tahoma, sans-serif;
+  background:var(--secondary);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* ===== Header ===== */
+header{
+  background:linear-gradient(to right,#0a3d62,#1e5799);
+  color:white;
+  padding:50px 20px 60px;
+  text-align:center;
+}
+
+header img{
+  width:90px;
+  height:auto;
+  margin-bottom:15px;
+}
+
+header h1{
+  font-size:2.4rem;
+  margin-bottom:8px;
+}
+
+header p{
+  font-size:1.05rem;
+  opacity:0.95;
+}
+
+/* ===== Main Container ===== */
+.container{
+  max-width:850px;
+  margin:-40px auto 40px;
+  background:white;
+  padding:35px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* ===== Sections ===== */
+section{
+  margin-bottom:35px;
+}
+
+h2{
+  color:var(--primary);
+  margin-bottom:15px;
+  font-size:1.6rem;
+}
+
+h2::after{
+  content:"";
+  width:50px;
+  height:3px;
+  background:var(--accent);
+  display:block;
+  margin-top:6px;
+}
+
+/* ===== Form ===== */
+form{
+  display:grid;
+  gap:15px;
+}
+
+label{
+  font-weight:600;
+  font-size:0.95rem;
+}
+
+input, textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font-size:15px;
+}
+
+input:focus, textarea:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+textarea{
+  min-height:110px;
+  resize:vertical;
+}
+
+button{
+  background:var(--primary);
+  color:white;
+  padding:15px;
+  border:none;
+  border-radius:30px;
+  font-size:17px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#062b46;
+}
+
+/* ===== Info Box ===== */
+.info{
+  background:#f8fbff;
+  padding:20px;
+  border-radius:8px;
+  border-left:4px solid var(--accent);
+}
+
+.info p{
+  margin-bottom:8px;
+  font-size:0.95rem;
+}
+
+/* ===== Footer ===== */
+footer{
+  text-align:center;
+  padding:25px 10px;
+  font-size:14px;
+  color:#777;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:600px){
+  header h1{
+    font-size:2rem;
+  }
+  .container{
+    margin:-30px 10px 30px;
+    padding:25px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <!-- School Logo -->
+  <img src="logo.jpg" alt="CSSM School Logo">
+  <h1>CSSM School</h1>
+  <p>Building Knowledge, Character & Leadership</p>
+</header>
+
+<main class="container">
+
+<section id="about">
+  <h2>About CSSM</h2>
+  <p>
+    CSSM School was established in 2019 with a strong commitment to quality
+    education, moral discipline, and preparing students to become responsible
+    leaders of tomorrow.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>Fill the form below and you will be redirected to WhatsApp automatically.</p>
+
+  <form id="contactForm">
+    <label>Full Name</label>
+    <input type="text" id="name" required>
+
+    <label>Email Address</label>
+    <input type="email" id="email" required>
+
+    <label>Phone Number</label>
+    <input type="tel" id="phone" required>
+
+    <label>Your Message</label>
+    <textarea id="message" placeholder="Write your message here..." required></textarea>
+
+    <button type="submit">Send to WhatsApp</button>
+  </form>
+</section>
+
+<section class="info">
+  <p><strong>📍 Address:</strong> Katsina State, Musawa L.G, Sabon Layi</p>
+  <p><strong>📧 Email:</strong> info@cssm.edu.ng</p>
+  <p><strong>📞 Phone:</strong> 0802-674-4352</p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2025 CSSM School. All rights reserved.</p>
+  <p>Designed by Abdulhakim MT</p>
+</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  const whatsappNumber = "2348026744352";
+
+  const whatsappMessage =
+    `*CSSM School Contact*%0A` +
+    `Name: ${name}%0A` +
+    `Email: ${email}%0A` +
+    `Phone: ${phone}%0A` +
+    `Message: ${message}`;
+
+  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  // Redirect kai tsaye zuwa WhatsApp
+  window.location.href = whatsappURL;
+});
+</script>
+
+</body>
+</html>
